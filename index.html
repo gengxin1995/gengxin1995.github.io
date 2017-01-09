@@ -54,8 +54,6 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags">标签</a></li>
-	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -104,8 +102,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -124,9 +120,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/tags">标签</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -163,13 +157,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="系统环境配置"><a href="#系统环境配置" class="headerlink" title="系统环境配置"></a>系统环境配置</h2><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>下载<a href="https://nodejs.org/en/">Node.js</a>，一路安装即可</p>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>下载<a href="https://git-scm.com/download/">Git</a></p>
+        <h2 id="系统环境配置"><a href="#系统环境配置" class="headerlink" title="系统环境配置"></a>系统环境配置</h2><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>下载<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>，一路安装即可</p>
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>下载<a href="https://git-scm.com/download/" target="_blank" rel="external">Git</a></p>
 <h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>创建Hexo文件夹，进入文件夹，右键鼠标，点击Git Bash Here，执行以下操作：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ npm install  hexo-cli -g</div><div class="line">$ hexo init</div><div class="line">$ npm install</div><div class="line">$ hexo g <span class="comment"># hexo generate</span></div><div class="line">$ hexo s <span class="comment"># hexo server</span></div></pre></td></tr></table></figure></p>
-<p>现在打开<a href="http://localhost:4000/，可以看到默认的效果了。">http://localhost:4000/，可以看到默认的效果了。</a><br>
-        
-          <a class="article-more-a" href="/2017/01/04/Hexo-Github-Pages搭建个人博客/#more">more >></a>
-        
+<p>现在打开<a href="http://localhost:4000/，可以看到默认的效果了。" target="_blank" rel="external">http://localhost:4000/，可以看到默认的效果了。</a></p>
+<p>Hexo常用命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ hexo generate <span class="comment"># 生成静态文件，会在当前目录下生成一个新的叫做public的文件夹</span></div><div class="line">$ hexo server <span class="comment"># 启动本地web服务，用于博客的预览</span></div><div class="line">$ hexo deploy <span class="comment"># 部署博客到远端</span></div><div class="line">$ hexo new <span class="string">"postName"</span> <span class="comment"># 新建文章</span></div><div class="line">$ hexo new page <span class="string">"pageName"</span> <span class="comment"># 新建页面</span></div><div class="line">$ hexo d -g <span class="comment"># 生成部署</span></div><div class="line">$ hexo s -g <span class="comment"># 生成预览</span></div></pre></td></tr></table></figure></p>
+<h3 id="将博客部署到Github-Pages上"><a href="#将博客部署到Github-Pages上" class="headerlink" title="将博客部署到Github Pages上"></a>将博客部署到Github Pages上</h3><p>本地的博客已经搭建起来了，我们现在需要将本地的博客部署到Github上，就可以直接通过<a href="http://gengxin1995.github.io" target="_blank" rel="external">http://gengxin1995.github.io</a>来访问了。</p>
+<p>1.创建项目代码库<br>点击<a href="https://github.com/new" target="_blank" rel="external">New repository</a></p>
+<p><img src="http://ojampi25q.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170105111915.png" alt="新建仓库"></p>
+<p>2.安装插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
+<p>3.将本地Hexo文件更新到Github库中<br>在配置文件_config.xml中作如下修改：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repository: https://github.com/gengxin1995/gengxin1995.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
+<p>然后在hexo文件下执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d -g</div></pre></td></tr></table></figure></p>
+<p>即可完成部署</p>
+<h3 id="绑定独立域名"><a href="#绑定独立域名" class="headerlink" title="绑定独立域名"></a>绑定独立域名</h3><p>首先，你需要有个域名，学生可以参与<a href="https://www.qcloud.com/act/campus" target="_blank" rel="external">腾讯云校园计划</a><br>进入source目录，添加CNAME文件，内容为你的域名：<br><img src="http://ojampi25q.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170105113903.png" alt=""><br>在hexo文件夹中提交<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d -g</div></pre></td></tr></table></figure></p>
+<p>然后如下图所示解析域名<br><img src="http://ojampi25q.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170105113621.png" alt=""><br>等待生效，然后你就可以通过域名访问你的博客主页了。</p>
+<h3 id="Hexo主题设置"><a href="#Hexo主题设置" class="headerlink" title="Hexo主题设置"></a>Hexo主题设置</h3><p>以主题yilia为例进行说明<br>在hexo文件夹下的themes目录下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git</div></pre></td></tr></table></figure></p>
+<p>修改Hexo目录下的_config.yml配置文件中的theme属性，将其设置为yilia。</p>
+<p>返回hexo目录，在Git Bash中输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo d -g</div></pre></td></tr></table></figure></p>
+
       
 
       

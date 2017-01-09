@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://ojampi25q.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170105111915.png">
 <meta property="og:image" content="http://ojampi25q.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170105113903.png">
 <meta property="og:image" content="http://ojampi25q.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170105113621.png">
-<meta property="og:updated_time" content="2017-01-09T03:29:23.114Z">
+<meta property="og:updated_time" content="2017-01-09T03:45:03.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+Github Pages搭建个人博客">
 <meta name="twitter:description" content="系统环境配置安装Node.js下载Node.js，一路安装即可
@@ -70,8 +70,6 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/tags">标签</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,8 +119,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -141,9 +137,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/tags">标签</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -181,7 +175,8 @@
         <h2 id="系统环境配置"><a href="#系统环境配置" class="headerlink" title="系统环境配置"></a>系统环境配置</h2><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>下载<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>，一路安装即可</p>
 <h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>下载<a href="https://git-scm.com/download/" target="_blank" rel="external">Git</a></p>
 <h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>创建Hexo文件夹，进入文件夹，右键鼠标，点击Git Bash Here，执行以下操作：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ npm install  hexo-cli -g</div><div class="line">$ hexo init</div><div class="line">$ npm install</div><div class="line">$ hexo g <span class="comment"># hexo generate</span></div><div class="line">$ hexo s <span class="comment"># hexo server</span></div></pre></td></tr></table></figure></p>
-<p>现在打开<a href="http://localhost:4000/，可以看到默认的效果了。" target="_blank" rel="external">http://localhost:4000/，可以看到默认的效果了。</a><br><a id="more"></a><br>Hexo常用命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ hexo generate <span class="comment"># 生成静态文件，会在当前目录下生成一个新的叫做public的文件夹</span></div><div class="line">$ hexo server <span class="comment"># 启动本地web服务，用于博客的预览</span></div><div class="line">$ hexo deploy <span class="comment"># 部署博客到远端</span></div><div class="line">$ hexo new <span class="string">"postName"</span> <span class="comment"># 新建文章</span></div><div class="line">$ hexo new page <span class="string">"pageName"</span> <span class="comment"># 新建页面</span></div><div class="line">$ hexo d -g <span class="comment"># 生成部署</span></div><div class="line">$ hexo s -g <span class="comment"># 生成预览</span></div></pre></td></tr></table></figure></p>
+<p>现在打开<a href="http://localhost:4000/，可以看到默认的效果了。" target="_blank" rel="external">http://localhost:4000/，可以看到默认的效果了。</a></p>
+<p>Hexo常用命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ hexo generate <span class="comment"># 生成静态文件，会在当前目录下生成一个新的叫做public的文件夹</span></div><div class="line">$ hexo server <span class="comment"># 启动本地web服务，用于博客的预览</span></div><div class="line">$ hexo deploy <span class="comment"># 部署博客到远端</span></div><div class="line">$ hexo new <span class="string">"postName"</span> <span class="comment"># 新建文章</span></div><div class="line">$ hexo new page <span class="string">"pageName"</span> <span class="comment"># 新建页面</span></div><div class="line">$ hexo d -g <span class="comment"># 生成部署</span></div><div class="line">$ hexo s -g <span class="comment"># 生成预览</span></div></pre></td></tr></table></figure></p>
 <h3 id="将博客部署到Github-Pages上"><a href="#将博客部署到Github-Pages上" class="headerlink" title="将博客部署到Github Pages上"></a>将博客部署到Github Pages上</h3><p>本地的博客已经搭建起来了，我们现在需要将本地的博客部署到Github上，就可以直接通过<a href="http://gengxin1995.github.io" target="_blank" rel="external">http://gengxin1995.github.io</a>来访问了。</p>
 <p>1.创建项目代码库<br>点击<a href="https://github.com/new" target="_blank" rel="external">New repository</a></p>
 <p><img src="http://ojampi25q.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20170105111915.png" alt="新建仓库"></p>
