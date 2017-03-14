@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Sillydeer</title>
+  <title>为博客添加多说评论框 | Sillydeer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Sillydeer">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="注册多说访问多说网站，选用自己习惯的社交工具帐号登录，登录后根据提示填写一些基本信息。完成所有步骤后，会生成一个通用代码，复制下来。
+修改配置文件在_config.yml中增加duoshuo_shortname:站点的shortname，这里的shortname也就是你的二级域名。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为博客添加多说评论框">
+<meta property="og:url" content="http://yoursite.com/2017/03/14/为博客添加多说评论框/index.html">
 <meta property="og:site_name" content="Sillydeer">
+<meta property="og:description" content="注册多说访问多说网站，选用自己习惯的社交工具帐号登录，登录后根据提示填写一些基本信息。完成所有步骤后，会生成一个通用代码，复制下来。
+修改配置文件在_config.yml中增加duoshuo_shortname:站点的shortname，这里的shortname也就是你的二级域名。">
+<meta property="og:updated_time" content="2017-03-14T10:58:10.523Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sillydeer">
+<meta name="twitter:title" content="为博客添加多说评论框">
+<meta name="twitter:description" content="注册多说访问多说网站，选用自己习惯的社交工具帐号登录，登录后根据提示填写一些基本信息。完成所有步骤后，会生成一个通用代码，复制下来。
+修改配置文件在_config.yml中增加duoshuo_shortname:站点的shortname，这里的shortname也就是你的二级域名。">
   
     <link rel="alternative" href="/atom.xml" title="Sillydeer" type="application/atom+xml">
   
@@ -135,36 +142,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-为博客添加多说评论框" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/14/为博客添加多说评论框/" class="archive-article-date">
-  	<time datetime="2017-03-14T10:33:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/14/为博客添加多说评论框/">为博客添加多说评论框</a>
+    <h1 class="article-title" itemprop="name">
+      为博客添加多说评论框
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/03/14/为博客添加多说评论框/" class="archive-article-date">
+  	<time datetime="2017-03-14T10:33:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="注册多说"><a href="#注册多说" class="headerlink" title="注册多说"></a>注册多说</h3><p>访问<a href="http://duoshuo.com/" target="_blank" rel="external">多说</a>网站，选用自己习惯的社交工具帐号登录，登录后根据提示填写一些基本信息。完成所有步骤后，会生成一个<strong>通用代码</strong>，复制下来。</p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>在<code>_config.yml</code>中增加<code>duoshuo_shortname:站点的shortname</code>，这里的shortname也就是你的二级域名。<br><a id="more"></a></p>
+<h3 id="粘贴通用代码"><a href="#粘贴通用代码" class="headerlink" title="粘贴通用代码"></a>粘贴通用代码</h3><p>打开themes/主题名/layout/_partial/comment.ejs这个文件 ，在下面位置粘贴刚才复制的代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;% <span class="keyword">if</span> ( page.comments)&#123; %&gt;</div><div class="line">&lt;section id="comment"&gt;</div><div class="line">此处粘贴通用代码</div><div class="line">&lt;/section&gt;</div><div class="line">&lt;% &#125; %&gt;</div></pre></td></tr></table></figure></p>
+<p>粘贴完后，替换代码里的标题、网址、ID三项信息。<br>标题可以用&lt;%= item.title %&gt;来替换，<br>网址可以用&lt;%- config.url %&gt;&lt;%- config.root%&gt;&lt;%- item.path %&gt;来替换,<br>ID可以用&lt;%- item.path %&gt;来替换。  </p>
+<h3 id="重新生成部署"><a href="#重新生成部署" class="headerlink" title="重新生成部署"></a>重新生成部署</h3><p>在hexo文件下执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d -g</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list">
@@ -180,61 +190,106 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/04/Hexo-Github-Pages搭建个人博客/" class="archive-article-date">
-  	<time datetime="2017-01-04T06:20:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/04/Hexo-Github-Pages搭建个人博客/">Hexo+Github Pages搭建个人博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			 
-        <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color2">Github</a>
-        </li>
-       
-        <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color5">Hexo</a>
-        </li>
       
-		</ul>
-	</div>
 
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/14/为博客添加多说评论框/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/01/04/Hexo-Github-Pages搭建个人博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo+Github Pages搭建个人博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="为博客添加多说评论框" data-title="为博客添加多说评论框" data-url="http://yoursite.com/2017/03/14/为博客添加多说评论框/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"sillydeer"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -257,8 +312,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
