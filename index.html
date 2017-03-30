@@ -137,6 +137,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Ubuntu 16.04+opencv-2.4.13+cuda-8.0使用SiftGPU" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/30/Ubuntu 16.04+opencv-2.4.13+cuda-8.0使用SiftGPU/">Ubuntu 16.04+opencv-2.4.13+cuda-8.0使用SiftGPU</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/30/Ubuntu 16.04+opencv-2.4.13+cuda-8.0使用SiftGPU/" class="archive-article-date">
+  	<time datetime="2017-03-30T04:46:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>首先安装Ubuntu16.04，参考<a href="http://www.jianshu.com/p/2eebd6ad284d" target="_blank" rel="external">Windows10+Ubuntu双系统安装</a>。安装完成后，修改/etc/default/grub文件里的分辨率，并且把“quiet splash” 改成 “nomodeset quiet splash”, 然后 update-grub。<br>插上Nvidia显卡，在<strong>附加驱动</strong>中安装合适的显卡驱动。</p>
+<h3 id="安装CUDA"><a href="#安装CUDA" class="headerlink" title="安装CUDA"></a>安装CUDA</h3><p>下载CUDA Toolkit<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://10.3.200.202/cache/4/01/nvidia.com/ff57ff0ed5693ec89f12a86f1a0987b4/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb?autho=1490850739_f7a9f92a3edf953e01afae65e14a56d5&amp;file=cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb</div></pre></td></tr></table></figure></p>
+<p>下载完成之后使用如下命令进行安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install cuda</div></pre></td></tr></table></figure></p>
+<p>安装完成之后设置环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export PATH=/usr/local/cuda-8.0/bin:$PATH  </div><div class="line">export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH</div></pre></td></tr></table></figure></p>
+<p>查看显卡的驱动版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat /proc/driver/nvidia/version</div></pre></td></tr></table></figure></p>
+<p>查看nvcc编译器的版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvcc -V</div></pre></td></tr></table></figure></p>
+<h3 id="安装OpenCV"><a href="#安装OpenCV" class="headerlink" title="安装OpenCV"></a>安装OpenCV</h3><p>首先下载<a href="https://codeload.github.com/opencv/opencv/zip/2.4.13" target="_blank" rel="external">opencv2.4.13</a></p>
+<h3 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update  </div><div class="line">sudo apt-get install libopencv-dev build-essential checkinstall cmake pkg-config yasm libtiff4-dev libjpeg-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev libxine-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev python-dev python-numpy libtbb-dev libqt4-dev libgtk2.0-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils</div></pre></td></tr></table></figure>
+<h3 id="BUILD"><a href="#BUILD" class="headerlink" title="BUILD"></a>BUILD</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">unzip 2.4.13</div><div class="line">cd opencv-2.4.13</div><div class="line">mkdir release</div><div class="line">cd release</div><div class="line">cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 -D WITH_CUBLAS=1 -D BUILD_TIFF=ON -D WITH_CUDA=ON ..</div></pre></td></tr></table></figure>
+<p>检查cmake打印的信息中CUDA和CUDALS的状态是否是YES：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--     Use Cuda:                    YES (ver 8.0)  </div><div class="line">--     Use OpenCL:                  YES  </div><div class="line">--   </div><div class="line">--   NVIDIA CUDA  </div><div class="line">--     Use CUFFT:                   YES  </div><div class="line">--     Use CUBLAS:                  YES  </div><div class="line">--     USE NVCUVID:                 NO  </div><div class="line">--     NVIDIA GPU arch:             11 12 13 20 21 30 35  </div><div class="line">--     NVIDIA PTX archs:            30  </div><div class="line">--     Use fast math:               YES</div></pre></td></tr></table></figure></p>
+<h3 id="确认无误后，开始安装"><a href="#确认无误后，开始安装" class="headerlink" title="确认无误后，开始安装"></a>确认无误后，开始安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">make -j4  //多线程编译</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">echo &apos;/usr/local/lib&apos; | sudo tee -a /etc/ld.so.conf.d/opencv.conf    </div><div class="line">sudo ldconfig    </div><div class="line">printf &apos;# OpenCV\nPKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig\nexport PKG_CONFIG_PATH\n&apos; &gt;&gt; ~/.bashrc    </div><div class="line">source ~/.bashrc</div></pre></td></tr></table></figure>
+<p>查看opencv版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pkg-config --modversion opencv</div></pre></td></tr></table></figure></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="http://blog.aicry.com/ubuntu-14-04-install-opencv-with-cuda/" target="_blank" rel="external">UBUNTU 14.04: INSTALL OPENCV WITH CUDA</a></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			 
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color5">SIFT</a>
+        </li>
+       
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color2">OpenCV</a>
+        </li>
+       
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color5">CUDA</a>
+        </li>
+      
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/30/Ubuntu 16.04+opencv-2.4.13+cuda-8.0使用SiftGPU/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-SIFT视频特征分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -444,15 +529,23 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">SIFT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color2">OpenCV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">CUDA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color2">Github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">SIFT</a>
               </li>
              
               <li class="article-tag-list-item">
