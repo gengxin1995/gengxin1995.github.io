@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Sillydeer">
 <meta property="og:description" content="环境准备首先安装Ubuntu16.04，参考Windows10+Ubuntu双系统安装。安装完成后，修改/etc/default/grub文件里的分辨率，并且把“quiet splash” 改成 “nomodeset quiet splash”, 然后 update-grub。插上Nvidia显卡，在附加驱动中安装合适的显卡驱动。
 安装CUDA下载CUDA Toolkit1http://10.3.">
-<meta property="og:updated_time" content="2017-03-30T06:01:35.792Z">
+<meta property="og:updated_time" content="2017-04-22T09:38:53.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置">
 <meta name="twitter:description" content="环境准备首先安装Ubuntu16.04，参考Windows10+Ubuntu双系统安装。安装完成后，修改/etc/default/grub文件里的分辨率，并且把“quiet splash” 改成 “nomodeset quiet splash”, 然后 update-grub。插上Nvidia显卡，在附加驱动中安装合适的显卡驱动。
@@ -170,7 +170,7 @@
 <p>查看显卡的驱动版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat /proc/driver/nvidia/version</div></pre></td></tr></table></figure></p>
 <p>查看nvcc编译器的版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvcc -V</div></pre></td></tr></table></figure></p>
 <h3 id="安装OpenCV"><a href="#安装OpenCV" class="headerlink" title="安装OpenCV"></a>安装OpenCV</h3><p>首先下载<a href="https://codeload.github.com/opencv/opencv/zip/2.4.13" target="_blank" rel="external">opencv2.4.13</a></p>
-<h3 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update  </div><div class="line">sudo apt-get install libopencv-dev build-essential checkinstall cmake pkg-config yasm libtiff4-dev libjpeg-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev libxine-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev python-dev python-numpy libtbb-dev libqt4-dev libgtk2.0-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils</div></pre></td></tr></table></figure>
+<h3 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update  </div><div class="line">sudo apt-get install libopencv-dev build-essential checkinstall cmake pkg-config yasm libtiff5-dev libjpeg-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev libxine2-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev python-dev python-numpy libtbb-dev libqt4-dev libgtk2.0-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils</div></pre></td></tr></table></figure>
 <h3 id="BUILD"><a href="#BUILD" class="headerlink" title="BUILD"></a>BUILD</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">unzip 2.4.13</div><div class="line">cd opencv-2.4.13</div><div class="line">mkdir release</div><div class="line">cd release</div><div class="line">cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 -D WITH_CUBLAS=1 -D BUILD_TIFF=ON -D WITH_CUDA=ON ..</div></pre></td></tr></table></figure>
 <p>检查cmake打印的信息中CUDA和CUDALS的状态是否是YES：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--     Use Cuda:                    YES (ver 8.0)  </div><div class="line">--     Use OpenCL:                  YES  </div><div class="line">--   </div><div class="line">--   NVIDIA CUDA  </div><div class="line">--     Use CUFFT:                   YES  </div><div class="line">--     Use CUBLAS:                  YES  </div><div class="line">--     USE NVCUVID:                 NO  </div><div class="line">--     NVIDIA GPU arch:             11 12 13 20 21 30 35  </div><div class="line">--     NVIDIA PTX archs:            30  </div><div class="line">--     Use fast math:               YES</div></pre></td></tr></table></figure></p>
 <h3 id="确认无误后，开始安装"><a href="#确认无误后，开始安装" class="headerlink" title="确认无误后，开始安装"></a>确认无误后，开始安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">make -j4  //多线程编译</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
@@ -265,6 +265,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/03/30/SiftGPU/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SiftGPU
+        
+      </div>
+    </a>
   
   
     <a href="/2017/03/14/SIFT视频特征分析/" id="article-nav-older" class="article-nav-link-wrap">
@@ -397,11 +406,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">hexo</a>
+                <a href="javascript:void(0)" class="color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color3">多说</a>
+                <a href="javascript:void(0)" class="color5">贪心算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">考研机试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -417,15 +430,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">CUDA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color3">多说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color2">Github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">CUDA</a>
               </li>
             
             <div class="clearfix"></div>
