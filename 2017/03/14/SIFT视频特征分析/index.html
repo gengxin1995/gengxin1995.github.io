@@ -41,7 +41,7 @@
 <meta property="og:image" content="http://ojampi25q.bkt.clouddn.com/snipaste20170317_162613.png">
 <meta property="og:image" content="http://ojampi25q.bkt.clouddn.com/snipaste20170317_162646.png">
 <meta property="og:image" content="http://ojampi25q.bkt.clouddn.com/snipaste20170317_162745.png">
-<meta property="og:updated_time" content="2017-04-23T04:01:07.838Z">
+<meta property="og:updated_time" content="2017-04-23T04:14:25.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SIFT视频特征分析">
 <meta name="twitter:description" content="SIFT（尺度不变特征变换， Scale‐Invariant Feature Transform）是在计算机视觉领域中检测和描述图像中局部特征的算法。SIFT特征具备旋转、缩放、平移等几何形变不变性，并且对噪声、光照等图像变化有很好的稳定性。SIFT算法分为以下几个阶段：
@@ -158,13 +158,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -284,7 +284,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><article id="post-SIFT视频特征分析" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -327,7 +327,7 @@
       
           
         <p>SIFT（尺度不变特征变换， Scale‐Invariant Feature Transform）是在计算机视觉领域中检测和描述图像中局部特征的算法。SIFT特征具备旋转、缩放、平移等几何形变不变性，并且对噪声、光照等图像变化有很好的稳定性。SIFT算法分为以下几个阶段：</p>
-<h3 id="建立尺度空间"><a href="#建立尺度空间" class="headerlink" title="建立尺度空间"></a>建立尺度空间</h3><p>应用高斯卷积核构造图像尺度空间（高斯卷积核是唯一可能的尺度空间核）：<br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170314_210222.png" alt="尺度空间"><br><a id="more"></a><br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170314_210833.png" alt="高斯函数"><br>其中G(x, y, σ)是尺度可变高斯函数。σ是尺度空间因子，它决定着图像模糊平滑处理的程度。大尺度（σ值大）对应图像的概貌信息，小尺度（σ值小）对应图像的细节信息。大尺度对应着低分辨率，小尺度对应着高分辨率。<br>利用不同尺度的高斯差分核与图像卷积构造高斯差分尺度空间（DoG scale-space）：<br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170314_231008.png" alt="高斯差分尺度空间"><br>图像金字塔的建立：将输入图像通过不同尺度（σ）的高斯核函数连续滤波和降采样，形成高斯金字塔图像，在此基础上建立DoG金字塔。如下图所示，左侧为高斯金字塔，右侧为DoG金字塔。<br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170314_231422.png" alt="高斯金字塔与DOG金字塔"><br>高斯金字塔共分 O 组（ Octave），每组又分 S 层（ Layer）。金字塔的层数 S 为：<code>S = s + 3</code>。Lowe 建议 s 为 3。<br>组内各层图像的分辨率是相同的，即长和宽相同，但尺度逐渐增加，即越往塔顶图像越模糊。而下一组的第0层图像是由上一组倒数第三层图像按照隔点降采样得到的，即图像的长和宽分别减半。<br>DoG 金字塔是由高斯金字塔得到的，即高斯金字塔组内相邻两层图像相减得到 DoG 金字塔。因此高斯金字塔每组有 s+3 层图像，而 DoG 金字塔每组则有 s+2 层图像。</p>
+<h3 id="建立尺度空间"><a href="#建立尺度空间" class="headerlink" title="建立尺度空间"></a>建立尺度空间</h3><p>应用高斯卷积核构造图像尺度空间（高斯卷积核是唯一可能的尺度空间核）：<br><a id="more"></a><br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170314_210222.png" alt="尺度空间"><br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170314_210833.png" alt="高斯函数"><br>其中G(x, y, σ)是尺度可变高斯函数。σ是尺度空间因子，它决定着图像模糊平滑处理的程度。大尺度（σ值大）对应图像的概貌信息，小尺度（σ值小）对应图像的细节信息。大尺度对应着低分辨率，小尺度对应着高分辨率。<br>利用不同尺度的高斯差分核与图像卷积构造高斯差分尺度空间（DoG scale-space）：<br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170314_231008.png" alt="高斯差分尺度空间"><br>图像金字塔的建立：将输入图像通过不同尺度（σ）的高斯核函数连续滤波和降采样，形成高斯金字塔图像，在此基础上建立DoG金字塔。如下图所示，左侧为高斯金字塔，右侧为DoG金字塔。<br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170314_231422.png" alt="高斯金字塔与DOG金字塔"><br>高斯金字塔共分 O 组（ Octave），每组又分 S 层（ Layer）。金字塔的层数 S 为：<code>S = s + 3</code>。Lowe 建议 s 为 3。<br>组内各层图像的分辨率是相同的，即长和宽相同，但尺度逐渐增加，即越往塔顶图像越模糊。而下一组的第0层图像是由上一组倒数第三层图像按照隔点降采样得到的，即图像的长和宽分别减半。<br>DoG 金字塔是由高斯金字塔得到的，即高斯金字塔组内相邻两层图像相减得到 DoG 金字塔。因此高斯金字塔每组有 s+3 层图像，而 DoG 金字塔每组则有 s+2 层图像。</p>
 <h3 id="检测DOG尺度空间极值点"><a href="#检测DOG尺度空间极值点" class="headerlink" title="检测DOG尺度空间极值点"></a>检测DOG尺度空间极值点</h3><p>为了寻找尺度空间的极值点，每个检测点不仅需要和它所在尺度空间图像的相邻点进行比较，还需要和它的相邻尺度空间图像的点进行比较。如下图所示。<br>每个采样点和它同尺度的8个相邻点以及上下相邻尺度对应的9*2个点，共26个相邻点比较，以判断其是否为极值点。<br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170314_233856.png" alt="DoG极值点检测"><br>通过拟合三维二次函数以精确确定关键点的位置和尺度（达到亚像素精度），同时根据曲面拟合的方法对关键点进行进一步的精确定位，同时剔除对比度低的关键点和不稳定的边缘响应点（因为DoG算子会产生较强的边缘响应）。<br>1.去除对比度低的点<br>泰勒级数展开式为：<br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170315_094149.png" alt="泰勒级数展开式"><br>对上式求导，并令其为0，得到精确的位置：<br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170315_094202.png" alt=""><br>将公式（2）代入公式（1），就得到了该极值点下的极值：<br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170315_094219.png" alt=""><br>若<img src="http://ojampi25q.bkt.clouddn.com/snipaste20170315_095355.png" alt="">,该特征点就保留下来，否则就丢弃。</p>
 <p>2.去除边缘响应<br>一个平坦的DoG响应峰值往往在横跨边缘的地方有较大的主曲率，而在垂直边缘的方向上有较小的主曲率，主曲率可以通过2 × 2的Hessian矩阵H求出：<br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170315_145855.png" alt=""><br>矩阵 H 的直迹和行列式分别为：<br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170315_150021.png" alt=""><br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170315_150034.png" alt=""><br>首先剔除掉那些行列式为负数的点，即Det(H) &lt; 0，因为如果像素的曲率有不同的符号，则该点肯定不是特征点。设α &gt; β，并且α = γ β，其中γ &gt; 1，则<br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170315_150120.png" alt=""><br> (γ + 1)2 / γ的值在两个特征值相等的时候最小，随着γ的增大而增大。因此，为了检测主曲率是否在某域值γ下，只要检查下式是否成立即可：<br> <img src="http://ojampi25q.bkt.clouddn.com/snipaste20170315_150835.png" alt=""><br> 对于不满足上式的极值点就不是特征点，因此应该把它们剔除掉。在Lowe的文章中取γ = 10。  </p>
 <h3 id="为特征点分配方向"><a href="#为特征点分配方向" class="headerlink" title="为特征点分配方向"></a>为特征点分配方向</h3><p>经上面两个步骤，就可以找到图像中的所有特征点，这些特征点具有尺度不变性。为了实现旋转不变性，还需要为特征点分配一个方向角度。<br>像素梯度的幅值和幅角的计算公式为：<br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170316_091355.png" alt=""><br>在完成特征点邻域范围内的梯度计算后，还要应用梯度方向直方图来统计邻域内像素的梯度方向所对应的幅值大小。在实际计算中，梯度直方图的范围是0~360度，其中每45度一个柱，总共8个柱。在以r为半径的区域内，把那些梯度方向在0~44度范围内的像素找出来，把它们的加权后的梯度幅值相加在一起，作为第一柱的柱高；求其它柱高度的方法相同。<br>直方图的主峰值所代表的方向就是该特征点处邻域范围内图像梯度的主方向，也就是该特征点的主方向。每个特征点除了必须分配一个主方向外，还可能有一个或更多个辅方向，增加辅方向的目的是为了增强图像匹配的鲁棒性。辅方向的定义是，当存在另一个柱体高度大于主方向柱体高度的80%时，则该柱体所代表的方向角度就是该特征点的辅方向。<br><img src="http://ojampi25q.bkt.clouddn.com/snipaste20170317_162613.png" alt="">  </p>
@@ -345,17 +345,17 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2017/03/14/SIFT视频特征分析/">SIFT视频特征分析</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">Sillydeer</a></p>
-        <p><span>Created:</span>2017-03-14, 19:00:03</p>
-        <p><span>Updated:</span>2017-04-23, 12:01:07</p>
+        <p><span>本文标题:</span><a href="/2017/03/14/SIFT视频特征分析/">SIFT视频特征分析</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Sillydeer</a></p>
+        <p><span>发布时间:</span>2017-03-14, 19:00:03</p>
+        <p><span>最后更新:</span>2017-04-23, 12:14:25</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2017/03/14/SIFT视频特征分析/" title="SIFT视频特征分析">http://yoursite.com/2017/03/14/SIFT视频特征分析/</a>
-            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2017/03/14/SIFT视频特征分析/　　By Sillydeer" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/14/SIFT视频特征分析/" title="SIFT视频特征分析">http://yoursite.com/2017/03/14/SIFT视频特征分析/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/03/14/SIFT视频特征分析/　　作者: Sillydeer" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -382,7 +382,7 @@
 </article>
 
     <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+        <strong class="toc-title">文章目录</strong>
         
             <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#建立尺度空间"><span class="toc-number">1.</span> <span class="toc-text">建立尺度空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检测DOG尺度空间极值点"><span class="toc-number">2.</span> <span class="toc-text">检测DOG尺度空间极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为特征点分配方向"><span class="toc-number">3.</span> <span class="toc-text">为特征点分配方向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成特征点描述符"><span class="toc-number">4.</span> <span class="toc-text">生成特征点描述符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法实现"><span class="toc-number">5.</span> <span class="toc-text">算法实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li></ol>
         
@@ -398,10 +398,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
     <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
     </script>
 
 
@@ -459,15 +459,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/30/Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置/" title="Pre: Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置">
+            <a href="/2017/03/30/Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置/" title="上一篇: Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/14/为博客添加多说评论框/" title="Next: 为博客添加多说评论框">
+            <a href="/2017/03/14/为博客添加多说评论框/" title="下一篇: 为博客添加多说评论框">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -490,14 +490,14 @@
                 2016-2017 Sillydeer
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -506,7 +506,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -539,9 +539,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
