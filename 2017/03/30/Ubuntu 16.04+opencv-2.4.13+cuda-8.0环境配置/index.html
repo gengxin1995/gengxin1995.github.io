@@ -15,19 +15,16 @@
 
 
 
-<meta name="description" content="环境准备首先安装Ubuntu16.04，参考Windows10+Ubuntu双系统安装。安装完成后，修改/etc/default/grub文件里的分辨率，并且把“quiet splash” 改成 “nomodeset quiet splash”, 然后 update-grub。插上Nvidia显卡，在附加驱动中安装合适的显卡驱动。
-安装CUDA下载CUDA Toolkit1http://10.3.">
+<meta name="description" content="环境准备首先安装Ubuntu16.04，参考Windows10+Ubuntu双系统安装。安装完成后，修改/etc/default/grub文件里的分辨率，并且把“quiet splash” 改成 “nomodeset quiet splash”, 然后 update-grub。插上Nvidia显卡，在附加驱动中安装合适的显卡驱动。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置">
 <meta property="og:url" content="http://yoursite.com/2017/03/30/Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置/index.html">
 <meta property="og:site_name" content="Sillydeer">
-<meta property="og:description" content="环境准备首先安装Ubuntu16.04，参考Windows10+Ubuntu双系统安装。安装完成后，修改/etc/default/grub文件里的分辨率，并且把“quiet splash” 改成 “nomodeset quiet splash”, 然后 update-grub。插上Nvidia显卡，在附加驱动中安装合适的显卡驱动。
-安装CUDA下载CUDA Toolkit1http://10.3.">
-<meta property="og:updated_time" content="2017-04-23T03:58:48.242Z">
+<meta property="og:description" content="环境准备首先安装Ubuntu16.04，参考Windows10+Ubuntu双系统安装。安装完成后，修改/etc/default/grub文件里的分辨率，并且把“quiet splash” 改成 “nomodeset quiet splash”, 然后 update-grub。插上Nvidia显卡，在附加驱动中安装合适的显卡驱动。">
+<meta property="og:updated_time" content="2017-04-23T04:12:37.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置">
-<meta name="twitter:description" content="环境准备首先安装Ubuntu16.04，参考Windows10+Ubuntu双系统安装。安装完成后，修改/etc/default/grub文件里的分辨率，并且把“quiet splash” 改成 “nomodeset quiet splash”, 然后 update-grub。插上Nvidia显卡，在附加驱动中安装合适的显卡驱动。
-安装CUDA下载CUDA Toolkit1http://10.3.">
+<meta name="twitter:description" content="环境准备首先安装Ubuntu16.04，参考Windows10+Ubuntu双系统安装。安装完成后，修改/etc/default/grub文件里的分辨率，并且把“quiet splash” 改成 “nomodeset quiet splash”, 然后 update-grub。插上Nvidia显卡，在附加驱动中安装合适的显卡驱动。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -139,13 +136,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -265,7 +262,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap"><article id="post-Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -307,10 +304,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>首先安装Ubuntu16.04，参考<a href="http://www.jianshu.com/p/2eebd6ad284d" target="_blank" rel="external">Windows10+Ubuntu双系统安装</a>。安装完成后，修改/etc/default/grub文件里的分辨率，并且把“quiet splash” 改成 “nomodeset quiet splash”, 然后 update-grub。<br>插上Nvidia显卡，在<strong>附加驱动</strong>中安装合适的显卡驱动。</p>
+        <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>首先安装Ubuntu16.04，参考<a href="http://www.jianshu.com/p/2eebd6ad284d" target="_blank" rel="external">Windows10+Ubuntu双系统安装</a>。安装完成后，修改/etc/default/grub文件里的分辨率，并且把“quiet splash” 改成 “nomodeset quiet splash”, 然后 update-grub。<br>插上Nvidia显卡，在<strong>附加驱动</strong>中安装合适的显卡驱动。<br><a id="more"></a></p>
 <h2 id="安装CUDA"><a href="#安装CUDA" class="headerlink" title="安装CUDA"></a>安装CUDA</h2><p>下载CUDA Toolkit<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://10.3.200.202/cache/4/01/nvidia.com/ff57ff0ed5693ec89f12a86f1a0987b4/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb?autho=1490850739_f7a9f92a3edf953e01afae65e14a56d5&amp;file=cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb</div></pre></td></tr></table></figure></p>
 <p>下载完成之后使用如下命令进行安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install cuda</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
 <p>安装完成之后设置环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export PATH=/usr/local/cuda-8.0/bin:$PATH  </div><div class="line">export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH</div></pre></td></tr></table></figure></p>
 <p>查看显卡的驱动版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat /proc/driver/nvidia/version</div></pre></td></tr></table></figure></p>
 <p>查看nvcc编译器的版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvcc -V</div></pre></td></tr></table></figure></p>
@@ -332,17 +328,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/03/30/Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置/">Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Sillydeer</a></p>
-        <p><span>发布时间:</span>2017-03-30, 12:46:49</p>
-        <p><span>最后更新:</span>2017-04-23, 11:58:48</p>
+        <p><span>Title:</span><a href="/2017/03/30/Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置/">Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Sillydeer</a></p>
+        <p><span>Created:</span>2017-03-30, 12:46:49</p>
+        <p><span>Updated:</span>2017-04-23, 12:12:37</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/03/30/Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置/" title="Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置">http://yoursite.com/2017/03/30/Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/03/30/Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置/　　作者: Sillydeer" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/03/30/Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置/" title="Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置">http://yoursite.com/2017/03/30/Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置/</a>
+            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2017/03/30/Ubuntu 16.04+opencv-2.4.13+cuda-8.0环境配置/　　By Sillydeer" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -369,7 +365,7 @@
 </article>
 
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Contents</strong>
         
             <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-number">1.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装CUDA"><span class="toc-number">2.</span> <span class="toc-text">安装CUDA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装OpenCV"><span class="toc-number">3.</span> <span class="toc-text">安装OpenCV</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装依赖库"><span class="toc-number">3.1.</span> <span class="toc-text">安装依赖库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BUILD"><span class="toc-number">3.2.</span> <span class="toc-text">BUILD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#确认无误后，开始安装"><span class="toc-number">3.3.</span> <span class="toc-text">确认无误后，开始安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置环境变量"><span class="toc-number">3.4.</span> <span class="toc-text">配置环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
         
@@ -385,10 +381,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
     </script>
 
 
@@ -446,15 +442,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/30/SiftGPU/" title="上一篇: SiftGPU">
+            <a href="/2017/03/30/SiftGPU/" title="Pre: SiftGPU">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/14/SIFT视频特征分析/" title="下一篇: SIFT视频特征分析">
+            <a href="/2017/03/14/SIFT视频特征分析/" title="Next: SIFT视频特征分析">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -477,14 +473,14 @@
                 2016-2017 Sillydeer
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -493,7 +489,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -526,9 +522,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window

@@ -137,13 +137,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -263,7 +263,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap">
   
@@ -297,7 +297,7 @@
       
           
               <p>题目地址：<a href="https://www.nowcoder.com/practice/1284469ee94a4762848816a42281a9e0">牛客网-代理服务器</a></p>
-<p><strong>题目描述：</strong><br>使用代理服务器能够在一定程度上隐藏客户端信息，从而保护用户在互联网上的隐私。我们知道n个代理服务器的IP地址，现在要用它们去访问m个服务器。这 m 个服务器的 IP 地址和访问顺序也已经给出。系统在同一时刻只能使用一个代理服务器，并要求不能用代理服务器去访问和它 IP地址相同的服务器（不然客户端信息很有可能就会被泄露）。在这样的条件下，找到一种使用代理服务器的方案，使得代理服务器切换的次数尽可能得少。<br><strong>输入描述：</strong><br>每个测试数据包括 n + m + 2 行。<br>第 1 行只包含一个整数 n，表示代理服务器的个数。<br>第 2行至第n + 1行每行是一个字符串，表示代理服务器的 IP地址。这n个 IP地址两两不相同。<br>第 n + 2 行只包含一个整数 m，表示要访问的服务器的个数。<br>第 n + 3 行至第 n + m + 2 行每行是一个字符串，表示要访问的服务器的 IP 地址，按照访问的顺序给出。<br>每个字符串都是合法的IP地址，形式为“xxx.yyy.zzz.www”，其中任何一部分均是0–255之间的整数。输入数据的任何一行都不包含空格字符。<br>其中，1&lt;=n&lt;=1000，1&lt;=m&lt;=5000。<br>
+<p><strong>题目描述：</strong><br>使用代理服务器能够在一定程度上隐藏客户端信息，从而保护用户在互联网上的隐私。我们知道n个代理服务器的IP地址，现在要用它们去访问m个服务器。这 m 个服务器的 IP 地址和访问顺序也已经给出。系统在同一时刻只能使用一个代理服务器，并要求不能用代理服务器去访问和它 IP地址相同的服务器（不然客户端信息很有可能就会被泄露）。在这样的条件下，找到一种使用代理服务器的方案，使得代理服务器切换的次数尽可能得少。<br>
           
       
     </div>
@@ -420,9 +420,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>首先安装Ubuntu16.04，参考<a href="http://www.jianshu.com/p/2eebd6ad284d">Windows10+Ubuntu双系统安装</a>。安装完成后，修改/etc/default/grub文件里的分辨率，并且把“quiet splash” 改成 “nomodeset quiet splash”, 然后 update-grub。<br>插上Nvidia显卡，在<strong>附加驱动</strong>中安装合适的显卡驱动。</p>
-<h2 id="安装CUDA"><a href="#安装CUDA" class="headerlink" title="安装CUDA"></a>安装CUDA</h2><p>下载CUDA Toolkit<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://10.3.200.202/cache/4/01/nvidia.com/ff57ff0ed5693ec89f12a86f1a0987b4/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb?autho=1490850739_f7a9f92a3edf953e01afae65e14a56d5&amp;file=cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb</div></pre></td></tr></table></figure></p>
-<p>下载完成之后使用如下命令进行安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install cuda</div></pre></td></tr></table></figure></p>
+              <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>首先安装Ubuntu16.04，参考<a href="http://www.jianshu.com/p/2eebd6ad284d">Windows10+Ubuntu双系统安装</a>。安装完成后，修改/etc/default/grub文件里的分辨率，并且把“quiet splash” 改成 “nomodeset quiet splash”, 然后 update-grub。<br>插上Nvidia显卡，在<strong>附加驱动</strong>中安装合适的显卡驱动。<br>
           
       
     </div>
@@ -662,14 +660,14 @@
                 2016-2017 Sillydeer
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -678,7 +676,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -711,9 +709,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window

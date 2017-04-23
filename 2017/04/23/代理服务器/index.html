@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Sillydeer">
 <meta property="og:description" content="题目地址：牛客网-代理服务器
 题目描述：使用代理服务器能够在一定程度上隐藏客户端信息，从而保护用户在互联网上的隐私。我们知道n个代理服务器的IP地址，现在要用它们去访问m个服务器。这 m 个服务器的 IP 地址和访问顺序也已经给出。系统在同一时刻只能使用一个代理服务器，并要求不能用代理服务器去访问和它 IP地址相同的服务器（不然客户端信息很有可能就会被泄露）。在这样的条件下，找到一种使用代理服务器">
-<meta property="og:updated_time" content="2017-04-23T03:23:13.238Z">
+<meta property="og:updated_time" content="2017-04-23T04:11:47.575Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代理服务器">
 <meta name="twitter:description" content="题目地址：牛客网-代理服务器
@@ -139,13 +139,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -265,7 +265,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap"><article id="post-代理服务器" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -308,7 +308,7 @@
       
           
         <p>题目地址：<a href="https://www.nowcoder.com/practice/1284469ee94a4762848816a42281a9e0" target="_blank" rel="external">牛客网-代理服务器</a></p>
-<p><strong>题目描述：</strong><br>使用代理服务器能够在一定程度上隐藏客户端信息，从而保护用户在互联网上的隐私。我们知道n个代理服务器的IP地址，现在要用它们去访问m个服务器。这 m 个服务器的 IP 地址和访问顺序也已经给出。系统在同一时刻只能使用一个代理服务器，并要求不能用代理服务器去访问和它 IP地址相同的服务器（不然客户端信息很有可能就会被泄露）。在这样的条件下，找到一种使用代理服务器的方案，使得代理服务器切换的次数尽可能得少。<br><strong>输入描述：</strong><br>每个测试数据包括 n + m + 2 行。<br>第 1 行只包含一个整数 n，表示代理服务器的个数。<br>第 2行至第n + 1行每行是一个字符串，表示代理服务器的 IP地址。这n个 IP地址两两不相同。<br>第 n + 2 行只包含一个整数 m，表示要访问的服务器的个数。<br>第 n + 3 行至第 n + m + 2 行每行是一个字符串，表示要访问的服务器的 IP 地址，按照访问的顺序给出。<br>每个字符串都是合法的IP地址，形式为“xxx.yyy.zzz.www”，其中任何一部分均是0–255之间的整数。输入数据的任何一行都不包含空格字符。<br>其中，1&lt;=n&lt;=1000，1&lt;=m&lt;=5000。<br><a id="more"></a><br><strong>输出描述：</strong><br>可能有多组测试数据，对于每组输入数据， 输出数据只有一行，包含一个整数s，表示按照要求访问服务器的过程中切换代理服务器的最少次数。第一次使用的代理服务器不计入切换次数中。若没有符合要求的安排方式，则输出-1。<br><strong>输入例子：</strong><br>3<br>166.111.4.100<br>162.105.131.113<br>202.112.128.69<br>6<br>72.14.235.104<br>166.111.4.100<br>207.46.19.190<br>202.112.128.69<br>162.105.131.113<br>118.214.226.52<br><strong>输出例子：</strong><br>1<br><strong>解题思路：</strong>利用贪心算法。代理服务器可以多次使用，每次选择能够访问最多服务器的代理服务器，从需要转换代理服务器的位置开始，再次使用贪心算法，直到将服务器遍历完毕。<br><strong>代码如下：</strong></p>
+<p><strong>题目描述：</strong><br>使用代理服务器能够在一定程度上隐藏客户端信息，从而保护用户在互联网上的隐私。我们知道n个代理服务器的IP地址，现在要用它们去访问m个服务器。这 m 个服务器的 IP 地址和访问顺序也已经给出。系统在同一时刻只能使用一个代理服务器，并要求不能用代理服务器去访问和它 IP地址相同的服务器（不然客户端信息很有可能就会被泄露）。在这样的条件下，找到一种使用代理服务器的方案，使得代理服务器切换的次数尽可能得少。<br><a id="more"></a><br><strong>输入描述：</strong><br>每个测试数据包括 n + m + 2 行。<br>第 1 行只包含一个整数 n，表示代理服务器的个数。<br>第 2行至第n + 1行每行是一个字符串，表示代理服务器的 IP地址。这n个 IP地址两两不相同。<br>第 n + 2 行只包含一个整数 m，表示要访问的服务器的个数。<br>第 n + 3 行至第 n + m + 2 行每行是一个字符串，表示要访问的服务器的 IP 地址，按照访问的顺序给出。<br>每个字符串都是合法的IP地址，形式为“xxx.yyy.zzz.www”，其中任何一部分均是0–255之间的整数。输入数据的任何一行都不包含空格字符。<br>其中，1&lt;=n&lt;=1000，1&lt;=m&lt;=5000。<br><strong>输出描述：</strong><br>可能有多组测试数据，对于每组输入数据， 输出数据只有一行，包含一个整数s，表示按照要求访问服务器的过程中切换代理服务器的最少次数。第一次使用的代理服务器不计入切换次数中。若没有符合要求的安排方式，则输出-1。<br><strong>输入例子：</strong><br>3<br>166.111.4.100<br>162.105.131.113<br>202.112.128.69<br>6<br>72.14.235.104<br>166.111.4.100<br>207.46.19.190<br>202.112.128.69<br>162.105.131.113<br>118.214.226.52<br><strong>输出例子：</strong><br>1<br><strong>解题思路：</strong>利用贪心算法。代理服务器可以多次使用，每次选择能够访问最多服务器的代理服务器，从需要转换代理服务器的位置开始，再次使用贪心算法，直到将服务器遍历完毕。<br><strong>代码如下：</strong></p>
 <pre><code class="java"><span class="keyword">import</span> java.util.*;
 <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{
     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
@@ -366,17 +366,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/04/23/代理服务器/">代理服务器</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Sillydeer</a></p>
-        <p><span>发布时间:</span>2017-04-23, 11:04:14</p>
-        <p><span>最后更新:</span>2017-04-23, 11:23:13</p>
+        <p><span>Title:</span><a href="/2017/04/23/代理服务器/">代理服务器</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Sillydeer</a></p>
+        <p><span>Created:</span>2017-04-23, 11:04:14</p>
+        <p><span>Updated:</span>2017-04-23, 12:11:47</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/04/23/代理服务器/" title="代理服务器">http://yoursite.com/2017/04/23/代理服务器/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/04/23/代理服务器/　　作者: Sillydeer" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/04/23/代理服务器/" title="代理服务器">http://yoursite.com/2017/04/23/代理服务器/</a>
+            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2017/04/23/代理服务器/　　By Sillydeer" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -397,7 +397,7 @@
 </article>
 
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Contents</strong>
         
             
         
@@ -413,10 +413,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
     </script>
 
 
@@ -474,13 +474,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/30/SiftGPU/" title="下一篇: SiftGPU">
+            <a href="/2017/03/30/SiftGPU/" title="Next: SiftGPU">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -503,14 +503,14 @@
                 2016-2017 Sillydeer
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -519,7 +519,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -552,9 +552,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
